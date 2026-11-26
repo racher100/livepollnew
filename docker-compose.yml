@@ -1,0 +1,8 @@
+# Local MongoDB + Redis for development: docker compose up -d
+services:
+  mongo:
+    image: mongo:7
+    ports: ["27017:27017"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]

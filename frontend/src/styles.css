@@ -1,0 +1,25 @@
+:root { --bg:#0f1117; --card:#181b24; --line:#2a2f3d; --text:#e8eaf0; --muted:#8b93a7; --accent:#7c6cff; --good:#2fbf71; --bad:#ef5b5b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--line); }
+.logo { font-weight:700; font-size:1.2rem; color:var(--text); text-decoration:none; }
+main { max-width:680px; margin:0 auto; padding:24px 16px 64px; }
+h1 { font-size:1.6rem; margin:.4em 0; } h2 { font-size:1.2rem; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:16px; display:flex; flex-direction:column; gap:12px; }
+.narrow { max-width:420px; margin:48px auto; }
+.row { display:flex; gap:8px; align-items:center; } .row input { flex:1; }
+.between { justify-content:space-between; } .wrap { flex-wrap:wrap; }
+.muted { color:var(--muted); margin:0; } .error { color:var(--bad); margin:0; }
+input { width:100%; padding:11px 13px; border-radius:10px; border:1px solid var(--line); background:#0f1117; color:var(--text); font:inherit; }
+input:focus { outline:2px solid var(--accent); border-color:transparent; }
+button, .btn { padding:10px 16px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; }
+button:disabled { opacity:.6; cursor:not-allowed; }
+.ghost { background:transparent; border:1px solid var(--line); color:var(--text); } .danger { color:var(--bad); }
+.link { background:none; color:var(--accent); padding:4px 0; text-align:left; }
+.pill { font-size:.8rem; padding:3px 10px; border-radius:99px; border:1px solid var(--line); } .pill.on { color:var(--good); } .pill.off { color:var(--muted); }
+.opt { position:relative; overflow:hidden; display:flex; justify-content:space-between; width:100%; background:#0f1117; border:1px solid var(--line); color:var(--text); font-weight:500; padding:14px 16px; }
+.opt:disabled { opacity:1; cursor:default; }
+.opt:not(:disabled):hover { border-color:var(--accent); }
+.opt.mine { border-color:var(--accent); }
+.opt .bar { position:absolute; inset:0 auto 0 0; background:rgba(124,108,255,.28); transition:width .5s cubic-bezier(.2,.8,.2,1); }
+.opt .txt, .opt .num { position:relative; } .opt .num { color:var(--muted); font-variant-numeric:tabular-nums; }
