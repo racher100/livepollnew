@@ -35,7 +35,7 @@ func New(ctx context.Context, mongoURI, dbName, redisURL string) (*Store, error)
 	}
 	rdb := redis.NewClient(opt)
 	if err := rdb.Ping(ctx).Err(); err != nil {
-		return nil, fmt.Errorf("ping Redis: %w", err)
+		return nil, fmt.Errorf("ping Redis at %s (TLS enabled: %t): %w", opt.Addr, opt.TLSConfig != nil, err)
 	}
 
 	db := mc.Database(dbName)
