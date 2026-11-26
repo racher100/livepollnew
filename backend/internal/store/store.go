@@ -33,6 +33,7 @@ func New(ctx context.Context, mongoURI, dbName, redisURL string) (*Store, error)
 	if err != nil {
 		return nil, fmt.Errorf("parse Redis URL: %w", err)
 	}
+	opt.Protocol = 2
 	rdb := redis.NewClient(opt)
 	if err := rdb.Ping(ctx).Err(); err != nil {
 		return nil, fmt.Errorf("ping Redis at %s (TLS enabled: %t): %w", opt.Addr, opt.TLSConfig != nil, err)
