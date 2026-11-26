@@ -3,6 +3,7 @@ package store
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/redis/go-redis/v9"
@@ -23,18 +24,18 @@ func New(ctx context.Context, mongoURI, dbName, redisURL string) (*Store, error)
 
 	mc, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoURI))
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("connect MongoDB: %w", err)
 	}
 	if err := mc.Ping(ctx, nil); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("ping MongoDB: %w", err)
 	}
 	opt, err := redis.ParseURL(redisURL)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("parse Redis URL: %w", err)
 	}
 	rdb := redis.NewClient(opt)
 	if err := rdb.Ping(ctx).Err(); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("ping Redis: %w", err)
 	}
 
 	db := mc.Database(dbName)
