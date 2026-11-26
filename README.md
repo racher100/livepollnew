@@ -4,8 +4,7 @@ Create a poll, share the link, and watch votes arrive in real time, with no refr
 
 **Flow:** Create poll → Share link → Audience votes → Live results
 
-**Live link:** _(add your deployed URL here)_
-
+**Live Link:** [Click here to open LivePoll](https://livepoll-1-faf5.onrender.com)
 ## Stack and what each part does
 
 | Layer | Tech | Real job |
